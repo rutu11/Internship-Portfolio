@@ -216,16 +216,16 @@
                     </div>
                 </div>
             </div>
-<!--
+
     {% if grad|count !=0 %}
             <div class="row unselectable">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-down">
                     <div class="education-card">
-                        <div class="heading">
+                        <div class="edu-heading">
                             Bachelor of Engineering (BE)
                         </div>
                         <div class="content">
-                            {{grad.college}}<br>
+                            <p class="school-name">{{grad.college}}</p>
                             {{grad.year}}<br>
                             {{grad.branch}}<br>
                             C.G.P.I: {{grad.CGPI}}
@@ -236,13 +236,13 @@
     {% endif %}
 
     {% if hsc|count !=0 %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-right">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-down">
                     <div class="education-card">
-                        <div class="heading">
+                        <div class="edu-heading">
                             Higher Secondary Certificate (HSC)
                         </div>
                         <div class="content">
-                            {{hsc.school}}<br>
+                            <p class="school-name">{{hsc.school}}</p>
                             {{hsc.board}}<br>
                             Percentage: {{hsc.percentage}}
                         </div>
@@ -253,13 +253,13 @@
     {% endif%}
 
     {% if ssc|count !=0 %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-right">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-up">
                     <div class="education-card">
-                        <div class="heading">
+                        <div class="edu-heading">
                             Secondary School Certificate (SSC)
                         </div>
                         <div class="content">
-                            {{ssc.school}}<br>
+                            <p class="school-name">{{ssc.school}}</p>
                             {{ssc.board}}<br>
                             Percentage: {{ssc.percentage}}
                         </div>
@@ -269,13 +269,13 @@
     {% endif %}
 
     {% if diploma|count !=0 %}
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-left">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-up">
                 <div class="education-card">
-                    <div class="heading">
+                    <div class="edu-heading">
                         Diploma College  Certificate
                     </div>
                     <div class="content">
-                        {{diploma.school}}<br>
+                        <p class="school-name">{{diploma.school}}</p>
                         {{diploma.university}}<br>
                         Percentage: {{diploma.percentage}}
                     </div>
@@ -284,8 +284,9 @@
     {% endif %}
             </div>
         </div>
-    </div>-->
+    </div>
 
+<!--Skills-->
 {% if skills| count!=0 %}
     <div id="skill">
         <div class="container">
@@ -299,10 +300,10 @@
             </div>
 
             {% for type,values in skills.items() %}
-            <div class="row text-center unselectable" style="background: #F1FAEE; color:black; padding: 15px">
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+            <div class="row text-center unselectable skill-card">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" style="border-left: 2px solid #E63946;">
                     <div class="heading">
-                        <p style="color:blue;border-left: 2px solid #000;">{{type}}</p>
+                        <p style="color: #E63946;">{{type}}</p><!--style="color:blue;border-left: 2px solid #000;"-->
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down">
@@ -380,7 +381,7 @@
             <div class="row unselectable">
             {% for i in proj %}
 
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-up">
                     <div class="heading">
                         {% set main_title = i.title %}
                         {% set title, date = main_title.split('(') %}
@@ -503,9 +504,9 @@
                 </div>
             </div>
 
-       <!-- <div class="row unselectable">
-        {% for i in achiv %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+        <div class="row unselectable">
+        {% for i in achiv %}<!-- data-aos="fade-left"-->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-right">
                     <div class="heading">
                         <i class="fa fa-angle-right"></i>{{ i.description }}
                     </div>
@@ -514,7 +515,7 @@
                     </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
@@ -533,9 +534,9 @@
                 </div>
             </div>
 
-        <!--<div class="row unselectable">
+        <div class="row unselectable">
         {% for i in activ %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
                     <div class="heading">
                         <i class="fa fa-angle-right"></i>{{ i.description }}
                     </div>
@@ -544,7 +545,7 @@
                     </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
@@ -563,9 +564,9 @@
                 </div>
             </div>
 
-        <!--<div class="row unselectable">
+        <div class="row unselectable">
         {% for i in activOthers %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down">
                     <div class="heading">
                         <i class="fa fa-angle-right"></i>{{ i.description }}
                     </div>
@@ -574,7 +575,7 @@
                     </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
@@ -593,9 +594,9 @@
                 </div>
             </div>
 
-        <!--<div class="row unselectable">
+        <div class="row unselectable">
         {% for i in activExtra %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-right">
                     <div class="heading">
                         <i class="fa fa-angle-right"></i>{{ i.description }}
                     </div>
@@ -604,7 +605,7 @@
                     </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
@@ -672,8 +673,8 @@
             {% endfor %}
 
             {% if st |count !=0 %}
-                <!--<div class="row unselectable">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-left">
+                <div class="row unselectable">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-up">
                         <div class="heading">
                           <i class="fa fa-angle-right"></i>Short Term Goals
                         </div>
@@ -688,7 +689,7 @@
 
             {% if lt |count !=0 %}
                 <div class="row unselectable">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-right">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-down">
                         <div class="heading">
                            <i class="fa fa-angle-right"></i>Long Term Goals
                         </div>
@@ -699,7 +700,7 @@
                         </div>
                     </div>
                 </div>
-            {% endif %}-->
+            {% endif %}
         </div>
     </div>
 {% endif %}
@@ -768,7 +769,7 @@
     <script>
         AOS.init({
             offset: 40,
-            delay: 120,
+            delay: 150,
             mirror: true
         });
     </script>
