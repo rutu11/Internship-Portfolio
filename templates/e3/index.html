@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>{{personal.name}} - {{grad.college}}</title>
+
+    <link rel="stylesheet" href="/static/css/ep3/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+ <header>
+    <div class="overlay">
+           <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                <a class="navbar-brand" href="#home">
+                    <img src="/static/icon/ep3/PIIT.png">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"> </span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+
+                        {% if (hsc|count ==0) and (ssc|count ==0) and (grad|count ==0) and (diploma|count ==0) %}
+
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#education">Education</a>
+                        </li>
+                        {% endif %}
+
+
+                        {% if skills| count!=0 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skill">Skills</a>
+                        </li>
+                        {% endif %}
+
+
+                        {% if proj |count !=0 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#project">Projects</a>
+                        </li>
+                        {% endif %}
+
+
+                        {% if intern |count !=0 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#internship">Internship</a>
+                        </li>
+                        {% endif %}
+
+
+                        {% if (achiv|count ==0) and (certi|count ==0) %}
+
+                        {% else %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Achievements</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                {% if certi|count !=0 %}
+                                    <a class="dropdown-item" href="#course">Courses & Certificates</a>
+                                {% endif %}
+
+                                {% if achiv|count !=0 %}
+                                    <a class="dropdown-item" href="#achivement">Achievements</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        {% endif %}
+
+
+                        {% if (activ|count ==0) and (activOthers|count ==0) and (activExtra|count ==0) %}
+
+                        {% else %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Activities</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                {% if activ|count !=0 %}
+                                    <a class="dropdown-item" href="#activity">Activities</a>
+                                {% endif %}
+
+                                {% if activOthers|count !=0 %}
+                                    <a class="dropdown-item" href="#activeOthers">Other Activities</a>
+                                {% endif %}
+
+                                {% if activExtra|count !=0 %}
+                                    <a class="dropdown-item" href="#activExtra">Extra Activities</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        {% endif %}
+
+
+                        {% if (goals|count ==0) and (activOthers|count ==0) and (activExtra|count ==0) %}
+
+                        {% else %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Other</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                {% if goals|count !=0 %}
+                                    <a class="nav-link" href="#testimonial">Testimonials</a>
+                                {% endif %}
+
+                                {% if activ|count !=0 %}
+                                    <a class="nav-link" href="#goal">Goals</a>
+                                {% endif %}
+
+                                {% if activ|count !=0 %}
+                                    <a class="nav-link" href="#hobby">Hobbiess</a>
+                                {% endif %}
+
+                            </div>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+
+
+       <div id="home"></div>
+        <div  style="background-image: url({{ url_for('static', filename='img/home.jpg') }})" >
+                <div class="container">
+                   <ul class="box-area">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+        {% if links|count !=0 %}
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="slider-text text-center" data-aos="fade-right">
+                                {{personal.name}}
+                            </div>
+                            <div class="subtext text-center" data-aos="fade-left">
+                                {{grad.branch}}<br>
+                                {{grad.year}}
+                                <br>
+
+                            </div>
+                            <br><br>
+                            <center>
+                            {% for link in links %}
+                                    {% set linkele  = link.description %}
+                                    {% set name, href = linkele.split('-') %}
+                                        {% if 'Github' in name %}
+                                          <a class="iconP" style="align-content: center;" href={{href}} target="_blank"><i class="fa fa-github fa-2x"></i></a>
+                                        {% elif 'LinkedIn' in name %}
+
+                                           <a class="iconP" style="align-content: center;" href={{href}} target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+                                        {% endif %}
+                                {% endfor %}
+                                </center>
+                         <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <br><br>
+    </div>
+</header>
+<br><br>
+ <!-- Objective -->
+    <div class="container unselectable">
+        <div class="row" data-aos="fade-right">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" >
+                <div class="content" style="background:#06647E;color:white">
+                    <div class="objective">
+                        <p align="center">
+                           <sup><i class="fa fa-quote-left w3-xxlarge xw3-margin-right"></i></sup>
+                                &emsp;{{personal.objective}} &emsp;
+                           <sup><i class="fa fa-quote-right w3-xxlarge xw3-margin-right"></i></sup>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Education-->
+
+   <div id="education">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-auto col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center" data-aos="fade-right">
+                    <div class="section-header">
+                        Education
+                        <p class="text-muted">Details related to SSC, HSC, Graduaion & Higher Education</p>
+                    </div>
+                </div>
+            </div>
+<!--
+    {% if grad|count !=0 %}
+            <div class="row unselectable">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-left">
+                    <div class="education-card">
+                        <div class="heading">
+                            Bachelor of Engineering (BE)
+                        </div>
+                        <div class="content">
+                            {{grad.college}}<br>
+                            {{grad.year}}<br>
+                            {{grad.branch}}<br>
+                            C.G.P.I: {{grad.CGPI}}
+                        </div>
+                    </div>
+                </div>
+
+    {% endif %}
+
+    {% if hsc|count !=0 %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-right">
+                    <div class="education-card">
+                        <div class="heading">
+                            Higher Secondary Certificate (HSC)
+                        </div>
+                        <div class="content">
+                            {{hsc.school}}<br>
+                            {{hsc.board}}<br>
+                            Percentage: {{hsc.percentage}}
+                        </div>
+                    </div>
+                </div>
+
+
+    {% endif%}
+
+    {% if ssc|count !=0 %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-right">
+                    <div class="education-card">
+                        <div class="heading">
+                            Secondary School Certificate (SSC)
+                        </div>
+                        <div class="content">
+                            {{ssc.school}}<br>
+                            {{ssc.board}}<br>
+                            Percentage: {{ssc.percentage}}
+                        </div>
+                    </div>
+                </div>
+
+    {% endif %}
+
+    {% if diploma|count !=0 %}
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-left">
+                <div class="education-card">
+                    <div class="heading">
+                        Diploma College  Certificate
+                    </div>
+                    <div class="content">
+                        {{diploma.school}}<br>
+                        {{diploma.university}}<br>
+                        Percentage: {{diploma.percentage}}
+                    </div>
+                </div>
+             </div>
+    {% endif %}
+            </div>
+        </div>
+    </div>-->
+
+{% if skills| count!=0 %}
+    <div id="skill">
+        <div class="container">
+            <div class="row" data-aos="fade-right">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <div class="section-header">
+                        Skills
+                        <p class="text-muted">Glance on the skills in which I have excelled.</p>
+                    </div>
+                </div>
+            </div>
+
+            {% for type,values in skills.items() %}
+            <div class="row text-center unselectable" style="background: #F1FAEE; color:black; padding: 15px">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                    <div class="heading">
+                        <p style="color:blue;border-left: 2px solid #000;">{{type}}</p>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down">
+                    <div class="content">
+                    {% for value in values%}
+                        <p class="content">
+                            {% if value[1]=="Intermediate" %}
+                                {{value[0]}}  &emsp;  <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star-half-full" style="color:orange"></span>
+                            {% elif value[1]=="Advanced" %}
+                                {{value[0]}}  &emsp;  <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star" style="color:orange"></span>
+                            {% elif value[1]=="Basic" %}
+                                {{value[0]}}  &emsp;  <span class="fa fa-star" style="color:orange"></span>
+                                                <span class="fa fa-star" style="color:orange"></span>
+                            {% endif %}
+                        </p>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            {% endfor%}
+        </div>
+    </div>
+{% endif %}
+
+<!--1st parallax-->
+<div class="stats-area">
+    <div class="container">
+        <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" data-aos="fade-up">
+                    <div class="heading" style="color:white; ">
+                        <i class="fa fa-check-square-o fa-2x"></i>
+                        <h2>{{proj|length}}</h2>
+                        <p>Projects</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" data-aos="fade-right">
+                    <div class="heading" style="color:white;">
+                        <i class="fa fa-user-plus fa-2x"></i>
+                        <h2>{{intern|length}}</h2>
+                        <p>Internships</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" data-aos="fade-down">
+                    <div class="heading" style="color:white;">
+                        <i class="fa fa-certificate fa-2x"></i>
+                        <h2>{{certi|length}}</h2>
+                        <p>Courses</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<!--Project-->
+{% if proj |count !=0 %}
+    <div id="project">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 text-center" data-aos="fade-right">
+                    <div class="section-header">
+                        Projects
+                        <p class="text-muted">Some of my work throughout the Academic</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row unselectable">
+            {% for i in proj %}
+
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                    <div class="heading">
+                        {% set main_title = i.title %}
+                        {% set title, date = main_title.split('(') %}
+                        {% set date = date[:-1] %}
+                        {{ title }}<br>
+                        {{date}}
+                    </div>
+                    <p class="content">
+                        Semester {{ i.sem }}
+                    </p>
+                    <div class="content text-justify">
+                        {{ i.description }}
+                    </div>
+                </div>
+               <!-- <hr style="width:40% ;background-color:#a80038;height:2px; align-items: center; "> <br> -->
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!--Internship-->
+{% if intern |count !=0 %}
+    <div id="internship">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center"  data-aos="fade-right">
+                    <div class="section-header">
+                        Internships
+                        <p class="text-muted">Some of my work throughout the Academic</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+    {% for i in intern %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down">
+                    <div class="heading">
+                        {% set main_title = i.companyName %}
+                        {% set title, date = main_title.split('(') %}
+                        {% set date = date[:-1] %}
+                        {{ title }}<br>
+                        {{date}}
+                    </div>
+                    <div class="content unselectable">
+                        {% if i.type==0 %}
+                            Type: <font color="blue">Technical </font><br>
+                        {% else %}
+
+                            Type:  <font color="#f3558e"> Non-Technical  </font><br>
+                        {% endif %}
+                        Semester {{ i.sem }}<br>
+                        Duration: {{ i.duration }} days <br>
+                        <div class="content text-justify">
+                            {{ i.description }}
+                        </div>
+                    </div>
+                    <br>
+                    <button a href="#" type="button" class="btn btn-outline-success">Certificate</button>
+                </div>
+           <!-- <hr style="width:40% ;background-color:#a80038;height:2px; align-items: center; "> <br>   -->
+    {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!--Cerificate-->
+{% if certi|count !=0 %}
+<div id="course">
+        <div class="container" style="background:#A8DADC">     <!--background:#3F3F3F   #06647E-->   <!--background:#06647E-->
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center"  data-aos="fade-right">
+                    <div class="section-header" style="color:white">
+                        Courses & Certificates
+                        <p class="text-muted">Extra Knowledge</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row unselectable"style="align-items: center; display:flex;">
+            {% for ele in certi %}
+            <div class="col-lg-4 col-l-4 col-md-6 col-sm-12 col-xs-12" style="padding-bottom: 30px;">
+            <div class="card" style="width: 18rem;background:white" data-aos="fade-down">                  <!--background:#f2f2f2   F1FAEE   A80036-->
+              <div class="card-body" style="color:black">
+                <p class="card-title"><b>{{ele.name}}</b>
+                    <div class="card-subtitle mb-2 text-muted">Semester {{ele.sem}}</div>
+                </p>
+                <p class="card-text">
+                    {% if ele.type == 0 %}
+                       <font color="blue"> Technical   </font>
+                    {% else %}
+                      <font color="#f3558e">  Non-Technical  </font>
+                    {% endif %}<br>
+                    Duration: {{ele.duration}}<br>Days: {{ele.days}}
+                </p>
+                <button a href="#" type="button" class="btn btn-outline-success">Certificate</button>
+              </div>
+            </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!--Achievements-->
+{% if achiv |count !=0 %}
+    <div id="achivement">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 text-center" data-aos="fade-right">
+                    <div class="section-header">
+                        Scholarships & Awards
+                        <p class="text-muted">Some of my Achievements</p>
+                    </div>
+                </div>
+            </div>
+
+       <!-- <div class="row unselectable">
+        {% for i in achiv %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                    <div class="heading">
+                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                    </div>
+                    <div class="content">
+                        Semester {{ i.sem }}
+                    </div>
+                </div>
+        {% endfor %}
+        </div>-->
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!--Activities-->
+{% if activ |count !=0 %}
+    <div id="activity">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center"  data-aos="fade-right">
+                    <div class="section-header">
+                        Activities
+                        <p class="text-muted">Some of my activities throughout the Academic</p>
+                    </div>
+                </div>
+            </div>
+
+        <!--<div class="row unselectable">
+        {% for i in activ %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                    <div class="heading">
+                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                    </div>
+                    <div class="content">
+                        Semester {{ i.sem }}
+                    </div>
+                </div>
+        {% endfor %}
+        </div>-->
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!--Other activities-->
+{% if activOthers |count !=0 %}
+    <div id="activeOthers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center" data-aos="fade-right">
+                    <div class="section-header">
+                        Others Activities
+                        <p class="text-muted">Some of my other activities throughout the Academic</p>
+                    </div>
+                </div>
+            </div>
+
+        <!--<div class="row unselectable">
+        {% for i in activOthers %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                    <div class="heading">
+                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                    </div>
+                    <div class="content">
+                        Semester {{ i.sem }}
+                    </div>
+                </div>
+        {% endfor %}
+        </div>-->
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!--Extra activities-->
+{% if activExtra |count !=0 %}
+    <div id="activExtra">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center" data-aos="fade-right">
+                    <div class="section-header">
+                        Extra curricular Activities
+                        <p class="text-muted">Some of my extra activities throughout the Academic</p>
+                    </div>
+                </div>
+            </div>
+
+        <!--<div class="row unselectable">
+        {% for i in activExtra %}
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                    <div class="heading">
+                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                    </div>
+                    <div class="content">
+                        Semester {{ i.sem }}
+                    </div>
+                </div>
+        {% endfor %}
+        </div>-->
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!--Testimonials-->
+{% if certi|count !=0 %}
+    <div id="testimonial">
+        <div class="container"  style="background:#2b2024;padding:20px;">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center"  data-aos="fade-right">
+                    <div class="section-header">
+                        <font color="#fbf9fa">
+                        Testimonials
+                        <p class="text-muted">These are some reviews about me</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row unselectable" style="padding:20px">
+                {% for ele in certi %}
+                    <div class="col-lg-4 col-l-4 col-md-6 col-sm-12 col-xs-12" style="padding-bottom: 30px;"   data-aos="fade-up">
+                        <div class="card" style="width:18rem;background:#a80038">
+                            <div class="card-body">
+                                <p class="card-title">
+                                    {{ele.name}}
+                                </p>
+                                <p class="card-text">
+                                    Skillfull, hardworker
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </font>
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!-- Goals -->
+{% if goals |count !=0 %}
+    <div id="goal">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center"  data-aos="fade-right">
+                    <div class="section-header">
+                        Goals
+                        <p class="text-muted">Some of my long and short term goals</p>
+                    </div>
+                </div>
+            </div>
+
+            {% set st = [] %}
+            {% set lt = [] %}
+
+            {% for i in goals %}
+
+                {% if i.type=="Short Term" %}
+                    {% set st = st.append( i.description) %}
+                {% else %}
+                    {% set lt = lt.append( i.description ) %}
+                {% endif %}
+
+            {% endfor %}
+
+            {% if st |count !=0 %}
+                <!--<div class="row unselectable">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-left">
+                        <div class="heading">
+                          <i class="fa fa-angle-right"></i>Short Term Goals
+                        </div>
+                        <div class="content col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            {% for j in st %}
+                                {{ j }}<br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if lt |count !=0 %}
+                <div class="row unselectable">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-right">
+                        <div class="heading">
+                           <i class="fa fa-angle-right"></i>Long Term Goals
+                        </div>
+                        <div class="content col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            {% for j in lt %}
+                                {{ j }}<br>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}-->
+        </div>
+    </div>
+{% endif %}
+
+<!-- Advertisement -->
+<div class="container-fluid">
+        <div class="row justify-content-around align-items-center">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 bg-warning sfix">
+                Advertisement 1
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 bg-warning sfix">
+                Advertisement 2
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 bg-warning sfix">
+                Advertisement 3
+            </div>
+        </div>
+    </div>
+
+<br><br><br>
+
+<!--Footer area-->
+    <div class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center footer-text">
+                    <b><i class="fa fa-copyright"></i>{{grad.acronym}} Software Team</b>
+                    <p>Designed by {{member.one}} and {{member.two}}</p>
+                </div>
+            </div>
+{% if links| count!=0 %}
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    {% for link in college_links %}
+                        {% set linkele  = link.description %}
+                        {% set name, href = linkele.split('-') %}
+                            {% if 'PCE' in name %}
+                                <a class="icon" style="font-weight: bold; font-size:16px; " href={{href}} target="_blank">{{grad.acronym}}</a>
+                            {% elif 'LinkedIn' in name %}
+                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+                            {% elif 'Facebook' in name %}
+                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+                            {% elif 'Twitter' in name %}
+                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                            {% elif 'Instagram' in name %}
+                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                            {% elif 'Youtube' in name %}
+                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-youtube-play fa-2x"></i></a>
+                            {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      $(window).scroll(function(){
+        $('nav').toggleClass('scrolled', $(this).scrollTop()>150);
+      });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            offset: 40,
+            delay: 120,
+            mirror: true
+        });
+    </script>
+</body>
+</html>
