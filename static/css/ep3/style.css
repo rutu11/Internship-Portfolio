@@ -8,9 +8,13 @@
 html{
 	scroll-behavior: smooth;
 }
-
+.skill-card{
+    background: #F1FAEE;
+    color:black;
+    padding: 15px;
+}
 .space-bottom{
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 .education-card{
     border-left: 4px solid #E63946;
@@ -119,6 +123,14 @@ ul li a:hover{
 	font-weight: bold;
 	font-family: 'Noto Sans KR', sans-serif;
 
+}
+.edu-heading{
+    font-size: 22px;
+	color: #457B9D;
+}
+.school-name{
+    font-size:18px;
+    font-weight:bold;
 }
 .heading{
 	font-size: 24px;
@@ -396,7 +408,7 @@ ul li a:hover{
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(1,8,59,0.5);
 }
 
 .container1 {
