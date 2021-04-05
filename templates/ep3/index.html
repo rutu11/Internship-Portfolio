@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" href="/static/icon/ep3/PIIT.png" type="image/png" sizes="16x16">
 
     <title>{{personal.name}} - {{grad.college}}</title>
 
@@ -12,11 +13,22 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+
+    <style>
+        .custom-toggler.navbar-toggler {
+            border-color: #ffffff;
+        }
+
+        .custom-toggler .navbar-toggler-icon {
+            background-image: url(
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+    </style>
 
 </head>
 
@@ -25,9 +37,27 @@
     <div class="overlay">
            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
                 <a class="navbar-brand" href="#home">
-                    <img src="/static/icon/ep3/PIIT.png">
+                    {% if grad.college == "Pillai College Of Engineering"  %}
+                        <img src="/static/icon/ep3/PIIT.png">
+                    {% endif %}
+
+                    {% if grad.college == "Pillai College of Architecture"  %}
+                    <div style="background-color:white">
+                        <img src="/static/icon/ep3/pica.png">
+                    </div>
+                    {% endif %}
+
+                    {% if grad.college == "Pillai Institute of Management Studies and Research"  %}
+                    <div style="background-color:white">
+                        <img src="/static/icon/ep3/pimsr.png">
+                    </div>
+                    {% endif %}
+
+                    {% if grad.college == "Pillai College of Arts, Commerce and Science"  %}
+                        <img src="/static/icon/ep3/pcacs.png">
+                    {% endif %}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"> </span>
                 </button>
 
@@ -38,28 +68,28 @@
 
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#education">Education</a>
+                            <a class="nav-link" href="#education"><font color="white">Education</font></a>
                         </li>
                         {% endif %}
 
 
                         {% if skills| count!=0 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#skill">Skills</a>
+                            <a class="nav-link" href="#skill"><font color="white">Skills</font></a>
                         </li>
                         {% endif %}
 
 
                         {% if proj |count !=0 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#project">Projects</a>
+                            <a class="nav-link" href="#project"><font color="white">Projects</font></a>
                         </li>
                         {% endif %}
 
 
                         {% if intern |count !=0 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#internship">Internship</a>
+                            <a class="nav-link" href="#internship"><font color="white">Internship</font></a>
                         </li>
                         {% endif %}
 
@@ -69,7 +99,7 @@
                         {% else %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Achievements</a>
+                            <font color="white">Achievements</font></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                                 {% if certi|count !=0 %}
@@ -89,7 +119,7 @@
                         {% else %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Activities</a>
+                            <font color="white">Activities</font></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                                 {% if activ|count !=0 %}
@@ -113,19 +143,23 @@
                         {% else %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Other</a>
+                            <font color="white">Other</font></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
+                                {% if testi|count !=0 %}
+                                    <a class="nav-link" href="#testi">Testimonials</a>
+                                {% endif %}
+
+                                {% if hobbies|count !=0 %}
+                                    <a class="nav-link" href="#hobbies">Hobbies</a>
+                                {% endif %}
+
+                                {% if lang|count !=0 %}
+                                    <a class="nav-link" href="#lang">Languages</a>
+                                {% endif %}
+
                                 {% if goals|count !=0 %}
-                                    <a class="nav-link" href="#testimonial">Testimonials</a>
-                                {% endif %}
-
-                                {% if activ|count !=0 %}
                                     <a class="nav-link" href="#goal">Goals</a>
-                                {% endif %}
-
-                                {% if activ|count !=0 %}
-                                    <a class="nav-link" href="#hobby">Hobbiess</a>
                                 {% endif %}
 
                             </div>
@@ -137,7 +171,6 @@
 
 
        <div id="home"></div>
-        <div  style="background-image: url({{ url_for('static', filename='img/home.jpg') }})" >
                 <div class="container">
                    <ul class="box-area">
                         <li></li>
@@ -153,24 +186,40 @@
         {% if links|count !=0 %}
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="slider-text text-center" data-aos="fade-right">
+                            <div class="slider-text text-center" data-aos="fade-right" style="color:#ffcb00;">
                                 {{personal.name}}
                             </div>
-                            <div class="subtext text-center" data-aos="fade-left">
+
+                            <br>
+
+
+                            <div class="subtext text-center dept" data-aos="fade-left" style="background-color:;">
                                 {{grad.branch}}<br>
                                 {{grad.year}}
                                 <br>
 
                             </div>
-                            <br><br>
-                            <center>
+                            <br>
+                                <div class="col-12" style="color:white;font-size:120%;padding:5px" data-aos="fade-right">
+                                    <i class="fa fa-envelope-o" style="font-size:24px; color:#ffcb00;"></i>&ensp;{{  personal.emailPersonal }} , {{  personal.emailCollege }}
+                                </div>
+
+                                <div class="col-12" style="color:white;font-size:120%" data-aos="fade-left">
+                                    <i class="fa fa-phone" style="font-size:24px; color:#ffcb00;"></i>&ensp;{{  personal.contact }}
+                                </div>
+
+
+
+                                <br>
+                                <center>
+
                             {% for link in links %}
                                     {% set linkele  = link.description %}
                                     {% set name, href = linkele.split('-') %}
                                         {% if 'Github' in name %}
                                           <a class="iconP" style="align-content: center;" href={{href}} target="_blank"><i class="fa fa-github fa-2x"></i></a>
                                         {% elif 'LinkedIn' in name %}
-
+                                                &emsp;&emsp;
                                            <a class="iconP" style="align-content: center;" href={{href}} target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
                                         {% endif %}
                                 {% endfor %}
@@ -181,7 +230,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         {% endif %}
         <br><br>
     </div>
@@ -191,7 +239,7 @@
     <div class="container unselectable">
         <div class="row" data-aos="fade-right">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" >
-                <div class="content" style="background:#06647E;color:white">
+                <div class="content" style="background:#d9edf7;color:black">
                     <div class="objective">
                         <p align="center">
                            <sup><i class="fa fa-quote-left w3-xxlarge xw3-margin-right"></i></sup>
@@ -216,16 +264,21 @@
                     </div>
                 </div>
             </div>
-<!--
+
     {% if grad|count !=0 %}
             <div class="row unselectable">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-down">
                     <div class="education-card">
-                        <div class="heading">
+                        <div class="edu-heading">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-book" fill="black" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 0 1 8.5 2.5v11a.5.5 0 0 1-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 0 1 0 13.5v-11a.5.5 0 0 1 .276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 0 1 .22-.103 12.958 12.958 0 0 1 2.7-.869zM1 2.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V2.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 0 0 1 2.82z"/>
+                              <path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 0 0 7.5 2.5v11a.5.5 0 0 0 .854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 0 0-.799-.34 12.96 12.96 0 0 0-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0 1 15 2.82z"/>
+                            </svg>
+
                             Bachelor of Engineering (BE)
                         </div>
                         <div class="content">
-                            {{grad.college}}<br>
+                            <p class="school-name">{{grad.college}}</p>
                             {{grad.year}}<br>
                             {{grad.branch}}<br>
                             C.G.P.I: {{grad.CGPI}}
@@ -236,13 +289,17 @@
     {% endif %}
 
     {% if hsc|count !=0 %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-right">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-down">
                     <div class="education-card">
-                        <div class="heading">
+                        <div class="edu-heading">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-book" fill="black" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 0 1 8.5 2.5v11a.5.5 0 0 1-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 0 1 0 13.5v-11a.5.5 0 0 1 .276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 0 1 .22-.103 12.958 12.958 0 0 1 2.7-.869zM1 2.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V2.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 0 0 1 2.82z"/>
+                              <path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 0 0 7.5 2.5v11a.5.5 0 0 0 .854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 0 0-.799-.34 12.96 12.96 0 0 0-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0 1 15 2.82z"/>
+                            </svg>
                             Higher Secondary Certificate (HSC)
                         </div>
                         <div class="content">
-                            {{hsc.school}}<br>
+                            <p class="school-name">{{hsc.school}}</p>
                             {{hsc.board}}<br>
                             Percentage: {{hsc.percentage}}
                         </div>
@@ -253,13 +310,17 @@
     {% endif%}
 
     {% if ssc|count !=0 %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-right">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-up">
                     <div class="education-card">
-                        <div class="heading">
+                        <div class="edu-heading">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-book" fill="black" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 0 1 8.5 2.5v11a.5.5 0 0 1-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 0 1 0 13.5v-11a.5.5 0 0 1 .276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 0 1 .22-.103 12.958 12.958 0 0 1 2.7-.869zM1 2.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V2.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 0 0 1 2.82z"/>
+                              <path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 0 0 7.5 2.5v11a.5.5 0 0 0 .854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 0 0-.799-.34 12.96 12.96 0 0 0-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0 1 15 2.82z"/>
+                            </svg>
                             Secondary School Certificate (SSC)
                         </div>
                         <div class="content">
-                            {{ssc.school}}<br>
+                            <p class="school-name">{{ssc.school}}</p>
                             {{ssc.board}}<br>
                             Percentage: {{ssc.percentage}}
                         </div>
@@ -269,13 +330,17 @@
     {% endif %}
 
     {% if diploma|count !=0 %}
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-left">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-up">
                 <div class="education-card">
-                    <div class="heading">
+                    <div class="edu-heading">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-book" fill="black" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 0 1 8.5 2.5v11a.5.5 0 0 1-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 0 1 0 13.5v-11a.5.5 0 0 1 .276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 0 1 .22-.103 12.958 12.958 0 0 1 2.7-.869zM1 2.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V2.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 0 0 1 2.82z"/>
+                            <path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 0 0 7.5 2.5v11a.5.5 0 0 0 .854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 0 0-.799-.34 12.96 12.96 0 0 0-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0 1 15 2.82z"/>
+                        </svg>
                         Diploma College  Certificate
                     </div>
                     <div class="content">
-                        {{diploma.school}}<br>
+                        <p class="school-name">{{diploma.school}}</p>
                         {{diploma.university}}<br>
                         Percentage: {{diploma.percentage}}
                     </div>
@@ -284,9 +349,12 @@
     {% endif %}
             </div>
         </div>
-    </div>-->
+    </div>
 
+
+<!--Skills-->
 {% if skills| count!=0 %}
+
     <div id="skill">
         <div class="container">
             <div class="row" data-aos="fade-right">
@@ -299,30 +367,90 @@
             </div>
 
             {% for type,values in skills.items() %}
-            <div class="row text-center unselectable" style="background: #F1FAEE; color:black; padding: 15px">
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+
+            <div class="row text-center unselectable skill-card" style="background:#e6e6e6;">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" style="border-left: 2px solid #244075;">
                     <div class="heading">
-                        <p style="color:blue;border-left: 2px solid #000;">{{type}}</p>
+                        <p style="color:#244075;font-size:22px;">{{type}}</p><!--style="color:blue;border-left: 2px solid #000;"-->
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down">
-                    <div class="content">
+                <div class="text-left col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down">
+                    <div class="content" >
                     {% for value in values%}
                         <p class="content">
+
+                            {% if value[1]=="Advanced" %}
+                                {{value[0]}}  &emsp;
+
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+
+                            {% endif %}
+                            </p>
+                    {% endfor %}
+
+                            {% for value in values%}
+                        <p class="content">
+
                             {% if value[1]=="Intermediate" %}
-                                {{value[0]}}  &emsp;  <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star-half-full" style="color:orange"></span>
-                            {% elif value[1]=="Advanced" %}
-                                {{value[0]}}  &emsp;  <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star" style="color:orange"></span>
-                            {% elif value[1]=="Basic" %}
-                                {{value[0]}}  &emsp;  <span class="fa fa-star" style="color:orange"></span>
-                                                <span class="fa fa-star" style="color:orange"></span>
+                                {{value[0]}}  &emsp;
+
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                </svg>
+
+                            {% endif %}
+                            </p>
+                            {% endfor %}
+
+
+                            {% for value in values%}
+                        <p class="content">
+
+                            {% if value[1]=="Basic" %}
+                                {{value[0]}}  &emsp;
+
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                </svg>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                </svg>
+
                             {% endif %}
                         </p>
                     {% endfor %}
@@ -335,26 +463,29 @@
     </div>
 {% endif %}
 
+<br><br>
+
+
 <!--1st parallax-->
 <div class="stats-area">
     <div class="container">
         <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" data-aos="fade-up">
-                    <div class="heading" style="color:white; ">
-                        <i class="fa fa-check-square-o fa-2x"></i>
+                    <div class="heading" style="color:black; ">
+                        <i class="fa fa-check-square-o fa-2x" ></i>
                         <h2>{{proj|length}}</h2>
                         <p>Projects</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" data-aos="fade-right">
-                    <div class="heading" style="color:white;">
+                    <div class="heading" style="color:black;">
                         <i class="fa fa-user-plus fa-2x"></i>
                         <h2>{{intern|length}}</h2>
                         <p>Internships</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 text-center" data-aos="fade-down">
-                    <div class="heading" style="color:white;">
+                    <div class="heading" style="color:black;">
                         <i class="fa fa-certificate fa-2x"></i>
                         <h2>{{certi|length}}</h2>
                         <p>Courses</p>
@@ -369,7 +500,7 @@
     <div id="project">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 text-center" data-aos="fade-right">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 col-xl-12 text-center" data-aos="fade-right" >
                     <div class="section-header">
                         Projects
                         <p class="text-muted">Some of my work throughout the Academic</p>
@@ -380,8 +511,14 @@
             <div class="row unselectable">
             {% for i in proj %}
 
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 space-bottom" data-aos="fade-up" style="padding:10px">
+                    <div class="education-card">
                     <div class="heading">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-journal-album" fill="black" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z"/>
+                          <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm3-6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5z"/>
+                          <path fill-rule="evenodd" d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
                         {% set main_title = i.title %}
                         {% set title, date = main_title.split('(') %}
                         {% set date = date[:-1] %}
@@ -393,6 +530,7 @@
                     </p>
                     <div class="content text-justify">
                         {{ i.description }}
+                    </div>
                     </div>
                 </div>
                <!-- <hr style="width:40% ;background-color:#a80038;height:2px; align-items: center; "> <br> -->
@@ -418,8 +556,13 @@
 
             <div class="row">
     {% for i in intern %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down" style="padding:10px">
+                    <div class="education-card">
                     <div class="heading">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-briefcase" fill="black" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6h-1v6a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-6H0v6z"/>
+                          <path fill-rule="evenodd" d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5v2.384l-7.614 2.03a1.5 1.5 0 0 1-.772 0L0 6.884V4.5zM1.5 4a.5.5 0 0 0-.5.5v1.616l6.871 1.832a.5.5 0 0 0 .258 0L15 6.116V4.5a.5.5 0 0 0-.5-.5h-13zM5 2.5A1.5 1.5 0 0 1 6.5 1h3A1.5 1.5 0 0 1 11 2.5V3h-1v-.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V3H5v-.5z"/>
+                        </svg>
                         {% set main_title = i.companyName %}
                         {% set title, date = main_title.split('(') %}
                         {% set date = date[:-1] %}
@@ -428,19 +571,20 @@
                     </div>
                     <div class="content unselectable">
                         {% if i.type==0 %}
-                            Type: <font color="blue">Technical </font><br>
+                            Type: <font color=""> Technical </font><br>
                         {% else %}
 
-                            Type:  <font color="#f3558e"> Non-Technical  </font><br>
+                            Type:  <font color=""> Non-Technical </font><br>
                         {% endif %}
                         Semester {{ i.sem }}<br>
                         Duration: {{ i.duration }} days <br>
                         <div class="content text-justify">
                             {{ i.description }}
                         </div>
+                        </div>
                     </div>
                     <br>
-                    <button a href="#" type="button" class="btn btn-outline-success">Certificate</button>
+                    <button a href="#" type="button" class="btn btn-primary" style="background:#3f70c0;color:white">Certificate</button>
                 </div>
            <!-- <hr style="width:40% ;background-color:#a80038;height:2px; align-items: center; "> <br>   -->
     {% endfor %}
@@ -453,33 +597,33 @@
 <!--Cerificate-->
 {% if certi|count !=0 %}
 <div id="course">
-        <div class="container" style="background:#A8DADC">     <!--background:#3F3F3F   #06647E-->   <!--background:#06647E-->
+        <div class="container" style="background:#d9edf7; align-items: center;">     <!--background:#3F3F3F   #06647E-->   <!--background:#06647E-->
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-center"  data-aos="fade-right">
-                    <div class="section-header" style="color:white">
+                    <div class="section-header">
                         Courses & Certificates
                         <p class="text-muted">Extra Knowledge</p>
                     </div>
                 </div>
             </div>
 
-            <div class="row unselectable"style="align-items: center; display:flex;">
+            <div class="row unselectable"style="align-items: center;">
             {% for ele in certi %}
-            <div class="col-lg-4 col-l-4 col-md-6 col-sm-12 col-xs-12" style="padding-bottom: 30px;">
-            <div class="card" style="width: 18rem;background:white" data-aos="fade-down">                  <!--background:#f2f2f2   F1FAEE   A80036-->
+            <div class="col-lg-4 col-l-4 col-md-6 col-sm-12 col-xs-12" style="padding-bottom: 30px; padding-left:;">
+            <div class="card" style="width: 18rem;background:white" data-aos="fade-down">
               <div class="card-body" style="color:black">
                 <p class="card-title"><b>{{ele.name}}</b>
                     <div class="card-subtitle mb-2 text-muted">Semester {{ele.sem}}</div>
                 </p>
                 <p class="card-text">
                     {% if ele.type == 0 %}
-                       <font color="blue"> Technical   </font>
+                       <font color=""> Technical   </font>
                     {% else %}
-                      <font color="#f3558e">  Non-Technical  </font>
+                      <font color="">  Non-Technical  </font>
                     {% endif %}<br>
                     Duration: {{ele.duration}}<br>Days: {{ele.days}}
                 </p>
-                <button a href="#" type="button" class="btn btn-outline-success">Certificate</button>
+                <button a href="#" type="button" class="btn btn-primary" style="background:#3f70c0;color:white">Certificate</button>
               </div>
             </div>
             </div>
@@ -503,18 +647,24 @@
                 </div>
             </div>
 
-       <!-- <div class="row unselectable">
-        {% for i in achiv %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+        <div class="row unselectable">
+        {% for i in achiv %}<!-- data-aos="fade-left"-->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-right" style="padding:10px">
+                    <div class="education-card">
                     <div class="heading">
-                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-award" fill="black" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z"/>
+                          <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+                        </svg>
+                        {{ i.description }}
                     </div>
-                    <div class="content">
+                    <div class="content" >
                         Semester {{ i.sem }}
+                    </div>
                     </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
@@ -533,18 +683,24 @@
                 </div>
             </div>
 
-        <!--<div class="row unselectable">
+        <div class="row unselectable">
         {% for i in activ %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" style="padding:10px">
+                    <div class="education-card">
                     <div class="heading">
-                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-bookmark-plus" fill="black" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M4.5 2a.5.5 0 0 0-.5.5v11.066l4-2.667 4 2.667V8.5a.5.5 0 0 1 1 0v6.934l-5-3.333-5 3.333V2.5A1.5 1.5 0 0 1 4.5 1h4a.5.5 0 0 1 0 1h-4zm9-1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V1.5a.5.5 0 0 1 .5-.5z"/>
+                          <path fill-rule="evenodd" d="M13 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
+                        </svg>
+                        {{ i.description }}
                     </div>
                     <div class="content">
                         Semester {{ i.sem }}
                     </div>
+                    </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
@@ -563,18 +719,25 @@
                 </div>
             </div>
 
-        <!--<div class="row unselectable">
+        <div class="row unselectable">
         {% for i in activOthers %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-down" style="padding:10px">
+                    <div class="education-card">
                     <div class="heading">
-                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-tags" fill="black" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
+                          <path fill-rule="evenodd" d="M5.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                          <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+                        </svg>
+                        {{ i.description }}
                     </div>
                     <div class="content">
                         Semester {{ i.sem }}
                     </div>
+                    </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
@@ -593,59 +756,125 @@
                 </div>
             </div>
 
-        <!--<div class="row unselectable">
+        <div class="row unselectable">
         {% for i in activExtra %}
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-left">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-right" style="padding:10px">
+                    <div class="education-card">
                     <div class="heading">
-                        <i class="fa fa-angle-right"></i>{{ i.description }}
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-plus" fill="black" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm4.5 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                          <path fill-rule="evenodd" d="M13 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
+                        </svg>
+                        {{ i.description }}
                     </div>
                     <div class="content">
                         Semester {{ i.sem }}
                     </div>
+                    </div>
                 </div>
         {% endfor %}
-        </div>-->
+        </div>
         </div>
     </div>
 {% endif %}
-<br><br>
+<br><br><br>
 
 <!--Testimonials-->
-{% if certi|count !=0 %}
-    <div id="testimonial">
-        <div class="container"  style="background:#2b2024;padding:20px;">
+{% if testi|count !=0 %}
+    <div id="testi">
+        <div class="container" style="background:#e6e6e6;padding:20px;">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-center"  data-aos="fade-right">
                     <div class="section-header">
-                        <font color="#fbf9fa">
                         Testimonials
                         <p class="text-muted">These are some reviews about me</p>
                     </div>
                 </div>
             </div>
             <div class="row unselectable" style="padding:20px">
-                {% for ele in certi %}
+                {% for ele in testi %}
                     <div class="col-lg-4 col-l-4 col-md-6 col-sm-12 col-xs-12" style="padding-bottom: 30px;"   data-aos="fade-up">
-                        <div class="card" style="width:18rem;background:#a80038">
+                        <div class="card" style="width:18rem;background:">
                             <div class="card-body">
-                                <p class="card-title">
-                                    {{ele.name}}
+                                <p class="card-title" style="color:#3f70c0">
+                                    <b> " {{ele.description}} " </b>
                                 </p>
                                 <p class="card-text">
-                                    Skillfull, hardworker
+                                    - {{ele.name}}
                                 </p>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-        </font>
         </div>
     </div>
 {% endif %}
 <br><br>
 
-<!-- Goals -->
+<!--Hobbies-->
+{% if hobbies |count !=0 %}
+    <div id="hobbies">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center" data-aos="fade-right">
+                    <div class="section-header">
+                        Hobbies
+                        <p class="text-muted">Some regular activities done during leisure time</p>
+                    </div>
+                </div>
+            </div>
+
+        <div class="row unselectable">
+        {% for i in hobbies %}
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6" data-aos="fade-right" style="padding:10px">
+                    <div class="education-card">
+                        <div class="heading">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus" fill="black" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 .989c.127 0 .253.049.35.145l6.516 6.516a.495.495 0 0 1 0 .7L8.35 14.866a.493.493 0 0 1-.35.145V.989z"/>
+                            </svg>
+                            {{ i }}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endif %}
+
+<!--languages-->
+{% if lang |count !=0 %}
+    <div id="lang">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center" data-aos="fade-right">
+                    <div class="section-header">
+                        Languages Known
+                    </div>
+                </div>
+            </div>
+
+        <div class="row unselectable">
+        {% for i in lang %}
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6" data-aos="fade-right" style="padding:10px">
+                    <div class="education-card">
+                    <div class="heading">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-quote" fill="black" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M2 1h12a1 1 0 0 1 1 1v11.586l-2-2A2 2 0 0 0 11.586 11H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                          <path fill-rule="evenodd" d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z"/>
+                        </svg>
+                        {{ i }}
+                    </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endif %}
+
+<!--Goals-->
 {% if goals |count !=0 %}
     <div id="goal">
         <div class="container">
@@ -672,15 +901,95 @@
             {% endfor %}
 
             {% if st |count !=0 %}
-                <!--<div class="row unselectable">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-left">
+                <div class="row unselectable">
+                    <div class="col-xl-6 col-lg-6 col-md-auto col-sm-12 col-xs-12"  data-aos="fade-up" style="padding:10px">
+                        <div class="education-card">
                         <div class="heading">
-                          <i class="fa fa-angle-right"></i>Short Term Goals
+                          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-flag" fill="black" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
+                              <path fill-rule="evenodd" d="M3.762 2.558C4.735 1.909 5.348 1.5 6.5 1.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126a8.89 8.89 0 0 0 .593-.25c.058-.027.117-.053.18-.08.57-.255 1.278-.544 2.14-.544a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5c-.638 0-1.18.21-1.734.457l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 9.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 1 1-.515-.858C4.735 7.909 5.348 7.5 6.5 7.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126.187-.068.376-.153.593-.25.058-.027.117-.053.18-.08.456-.204 1-.43 1.64-.512V2.543c-.433.074-.83.234-1.234.414l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 3.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 0 1-.554-.832l.04-.026z"/>
+                            </svg>
+                          Short Term Goals
+                        </div>
+                        <div class="content">
+                            {% for j in st %}
+                                <i class="fa fa-angle-right" style="padding:5px;color:"></i>
+                                {{ j }}<br>
+                            {% endfor %}
+                        </div>
+                        </div>
+                    </div>
+
+            {% endif %}
+
+            {% if lt |count !=0 %}
+                    <div class="col-xl-6 col-lg-6 col-md-auto col-sm-12 col-xs-12"  data-aos="fade-down" style="padding:10px">
+                        <div class="education-card">
+                        <div class="heading">
+                           <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-flag" fill="black" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
+                              <path fill-rule="evenodd" d="M3.762 2.558C4.735 1.909 5.348 1.5 6.5 1.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126a8.89 8.89 0 0 0 .593-.25c.058-.027.117-.053.18-.08.57-.255 1.278-.544 2.14-.544a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5c-.638 0-1.18.21-1.734.457l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 9.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 1 1-.515-.858C4.735 7.909 5.348 7.5 6.5 7.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126.187-.068.376-.153.593-.25.058-.027.117-.053.18-.08.456-.204 1-.43 1.64-.512V2.543c-.433.074-.83.234-1.234.414l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 3.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 0 1-.554-.832l.04-.026z"/>
+                            </svg>
+                           Long Term Goals
+                        </div>
+                        <div class="content">
+                            {% for j in lt %}
+                               <i class="fa fa-angle-right" style="padding:5px;color:"></i>
+                                {{ j }}<br>
+                            {% endfor %}
+                        </div>
+                        </div>
+                    </div>
+
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+<br><br>
+
+<!-- Goals -->
+<!--{% if goals |count !=0 %}
+    <div id="goal">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-xl-12 col-lg-12 text-center"  data-aos="fade-right">
+                    <div class="section-header">
+                        Goals
+                        <p class="text-muted">Some of my long and short term goals</p>
+                    </div>
+                </div>
+            </div>
+
+            {% set st = [] %}
+            {% set lt = [] %}
+
+            {% for i in goals %}
+
+                {% if i.type=="Short Term" %}
+                    {% set st = st.append( i.description) %}
+                {% else %}
+                    {% set lt = lt.append( i.description ) %}
+                {% endif %}
+
+            {% endfor %}
+
+            {% if st |count !=0 %}
+                <div class="row unselectable">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-up" style="padding:10px">
+                        <div class="education-card">
+                        <div class="heading">
+                          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-flag" fill="black" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
+                              <path fill-rule="evenodd" d="M3.762 2.558C4.735 1.909 5.348 1.5 6.5 1.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126a8.89 8.89 0 0 0 .593-.25c.058-.027.117-.053.18-.08.57-.255 1.278-.544 2.14-.544a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5c-.638 0-1.18.21-1.734.457l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 9.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 1 1-.515-.858C4.735 7.909 5.348 7.5 6.5 7.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126.187-.068.376-.153.593-.25.058-.027.117-.053.18-.08.456-.204 1-.43 1.64-.512V2.543c-.433.074-.83.234-1.234.414l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 3.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 0 1-.554-.832l.04-.026z"/>
+                            </svg>
+                          Short Term Goals
                         </div>
                         <div class="content col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                             {% for j in st %}
+                                <i class="fa fa-angle-right" style="padding:5px;color:"></i>
                                 {{ j }}<br>
                             {% endfor %}
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -688,71 +997,89 @@
 
             {% if lt |count !=0 %}
                 <div class="row unselectable">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-right">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"  data-aos="fade-down" style="padding:10px">
+                        <div class="education-card">
                         <div class="heading">
-                           <i class="fa fa-angle-right"></i>Long Term Goals
+                           <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-flag" fill="black" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M3.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
+                              <path fill-rule="evenodd" d="M3.762 2.558C4.735 1.909 5.348 1.5 6.5 1.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126a8.89 8.89 0 0 0 .593-.25c.058-.027.117-.053.18-.08.57-.255 1.278-.544 2.14-.544a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5c-.638 0-1.18.21-1.734.457l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 9.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 1 1-.515-.858C4.735 7.909 5.348 7.5 6.5 7.5c.653 0 1.139.325 1.495.562l.032.022c.391.26.646.416.973.416.168 0 .356-.042.587-.126.187-.068.376-.153.593-.25.058-.027.117-.053.18-.08.456-.204 1-.43 1.64-.512V2.543c-.433.074-.83.234-1.234.414l-.159.07c-.22.1-.453.205-.678.287A2.719 2.719 0 0 1 9 3.5c-.653 0-1.139-.325-1.495-.562l-.032-.022c-.391-.26-.646-.416-.973-.416-.833 0-1.218.246-2.223.916a.5.5 0 0 1-.554-.832l.04-.026z"/>
+                            </svg>
+                           Long Term Goals
                         </div>
                         <div class="content col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                             {% for j in lt %}
+                               <i class="fa fa-angle-right" style="padding:5px;color:"></i>
                                 {{ j }}<br>
                             {% endfor %}
                         </div>
+                        </div>
                     </div>
                 </div>
-            {% endif %}-->
+            {% endif %}
         </div>
     </div>
-{% endif %}
+{% endif %}-->
+<br><br>
+
 
 <!-- Advertisement -->
-<div class="container-fluid">
-        <div class="row justify-content-around align-items-center">
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 bg-warning sfix">
+    <div class="container">
+        <div class="row">
+            <div class=" container border mx-auto col-md col-sm bg-warning ">
                 Advertisement 1
+                <p>
+                    hello
+                    </p>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 bg-warning sfix">
+            <div class="container border mx-auto col-md col-sm bg-warning ">
                 Advertisement 2
+                <p>
+                    hello
+                    <p>
+                    hello
+                    </p>
+                    </p>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 bg-warning sfix">
+            <div class=" container border mx-auto col-md col-sm bg-warning">
                 Advertisement 3
+                <p>
+                    hello
+                    </p>
             </div>
         </div>
     </div>
 
-<br><br><br>
+<br><br>
+<br>
 
 <!--Footer area-->
     <div class="footer-area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center footer-text">
-                    <b><i class="fa fa-copyright"></i>{{grad.acronym}} Software Team</b>
+                    <b><i class="fa fa-copyright"></i>PCE Software Team</b>
                     <p>Designed by {{member.one}} and {{member.two}}</p>
                 </div>
             </div>
-{% if links| count!=0 %}
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                    {% for link in college_links %}
-                        {% set linkele  = link.description %}
-                        {% set name, href = linkele.split('-') %}
-                            {% if 'PCE' in name %}
-                                <a class="icon" style="font-weight: bold; font-size:16px; " href={{href}} target="_blank">{{grad.acronym}}</a>
-                            {% elif 'LinkedIn' in name %}
-                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
-                            {% elif 'Facebook' in name %}
-                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-                            {% elif 'Twitter' in name %}
-                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
-                            {% elif 'Instagram' in name %}
-                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
-                            {% elif 'Youtube' in name %}
-                                <a class="icon" href={{href}} target="_blank"><i class="fa fa-youtube-play fa-2x"></i></a>
-                            {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
+
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+{% for i in collegeLinks %}
+    {% for k,v in i.items() %}
+        {% if grad.acronym==v.ACR %}
+
+            <a class="icon" style="font-weight: bold; font-size:16px; " href={{v.website_link}} target="_blank">{{ v.ACR }}</a>
+            <a class="icon" href={{v.linkedin}} target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+            <a class="icon" href={{v.facebook}} target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+            <a class="icon" href={{v.twitter}} target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+            <a class="icon" href={{v.instagram}} target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+            <a class="icon" href={{v.youtube}} target="_blank"><i class="fa fa-youtube-play fa-2x"></i></a>
+
         {% endif %}
+    {% endfor %}
+{% endfor %}
+        </div>
+    </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -768,7 +1095,7 @@
     <script>
         AOS.init({
             offset: 40,
-            delay: 120,
+            delay: 150,
             mirror: true
         });
     </script>
